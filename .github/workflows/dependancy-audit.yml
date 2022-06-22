@@ -23,8 +23,9 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: 'client/yarn.lock'
       - name: 'Run Audit'
+        run: yarn audit
         working-directory: 'client'
         # run: |
         #   ls ${{ github.workspace }}
 #      - run: yarn install --frozen-lockfile --immutable
-      - run: yarn audit
+      
