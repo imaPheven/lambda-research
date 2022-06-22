@@ -21,4 +21,5 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: 'client/**/yarn.lock'
 #      - run: yarn install --frozen-lockfile --immutable
+      - run: cwd
       - run: yarn audit
