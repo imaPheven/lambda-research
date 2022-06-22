@@ -15,11 +15,8 @@ services:
     build: server
     depends_on:
       - mongo-backend
-    environment:
-      MONGO_DB=mongodb://<mongo-user>:<mongo-pass>@mongo-backend:27017
-      PORT=5001
     env_file:
-      ./server/config.env
+      - ./dev.env
     networks:
       - MONGO
     volumes:
@@ -38,9 +35,8 @@ services:
       - db-data1:/data/db
     networks:
       - MONGO
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: <mongo-user>
-      MONGO_INITDB_ROOT_PASSWORD: <mongo-pass>
+    env_file:
+      - ./dev.env
 
   mongo-express:
     image: mongo-express
@@ -51,10 +47,8 @@ services:
       - mongo-backend
     networks:
       - MONGO
-    environment:
-      ME_CONFIG_MONGODB_URL: mongodb://<mongo-user>:<mongo-pass>@mongo-backend:27017/
-      ME_CONFIG_MONGODB_ADMINUSERNAME: <mongo-user>
-      ME_CONFIG_MONGODB_ADMINPASSWORD: <mongo-pass>
+    env_file:
+      - ./dev.env
 
 volumes:
   db-data1:
