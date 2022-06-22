@@ -23,6 +23,10 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: 'client/yarn.lock'
       - name: 'Run Audit'
+        id: audit
         run: yarn audit
         working-directory: 'client'
+      - name: Handle fail
+        if: ${{ failure() }}
+        run: echo "${{ steps.audit }}"
       
