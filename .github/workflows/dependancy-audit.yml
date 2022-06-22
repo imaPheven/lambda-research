@@ -25,7 +25,7 @@ jobs:
       - name: 'Run Audit'
         id: audit
         run: |
-          yarn audit --level high
+          echo "::set-output name=YARN_RESULT::$(if YARN_RESULT="$(yarn audit --level high)"; then echo 0; else echo $?; fi)"
           echo "::set-output name=YARN_CODE::$(echo $?)"
         working-directory: 'client'
         continue-on-error: true
