@@ -28,6 +28,6 @@ jobs:
         working-directory: 'client'
         continue-on-error: true
       - name: Handle fail
-        if: ${{ failure() }}
+        # if: ${{ failure() }}
         run: echo "${{ toJSON(steps.audit) }}"
       
