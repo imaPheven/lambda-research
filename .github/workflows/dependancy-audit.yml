@@ -30,7 +30,7 @@ jobs:
         working-directory: 'client'
         continue-on-error: true
       - name: Handle fail
-        if: ${{ steps.audit.outputs.YARN_CODE >= 8 }}
+        if: ${{ steps.audit.outputs.YARN_CODE >= 10 }}
         run: |
           echo ${{ steps.audit.outputs.YARN_CODE }}
           echo ${{ steps.audit.outputs.YARN_RESULT }}
