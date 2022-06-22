@@ -51,9 +51,10 @@ recordRoutes.route("/record/add").post(function (req, response) {
 });
  
 // This section will help you update a record by id.
-recordRoutes.route("/update/:id").post(function (req, response) {
+recordRoutes.route("/update/:id").post((req, response) => {
  let db_connect = dbo.getDb(); 
  let myquery = { _id: ObjectId( req.params.id )}; 
+ let options = {}
  let newvalues = {   
    $set: {     
      name: req.body.name,    
@@ -61,6 +62,12 @@ recordRoutes.route("/update/:id").post(function (req, response) {
      level: req.body.level,   
    }, 
   }
+  db_connect.collection("records").updateOne(myquery, newvalues, options, function (err, obj) {
+    if (err) throw err;
+    console.log("1 document updated");
+    response.send('OK');
+  })
+  
 });
  
 // This section will help you delete a record
