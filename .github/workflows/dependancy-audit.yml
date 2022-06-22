@@ -14,11 +14,25 @@ jobs:
   dependency-review:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+      - name: 'Setup Node'
+        uses: actions/setup-node@v3
         with:
           node-version: '14'
           cache: 'yarn'
-          cache-dependency-path: 'client/**/yarn.lock'
-#      - run: yarn install --frozen-lockfile --immutable
-      - run: yarn audit
+          cache-dependency-path: 'client/yarn.lock'
+      - name: 'Run Audit'
+        id: audit
+        run: |
+          echo "::set-output name=YARN_CODE::$(if YARN_RESULT="$(yarn audit --level high)"; then echo 0; else echo $?; fi)"
+          # echo "::set-output name=YARN_RESULT::$(echo $YARN_RESULT)"
+        working-directory: 'client'
+        continue-on-error: true
+      - name: Handle fail
+        if: ${{ steps.audit.outputs.YARN_CODE >= 10 }}
+        run: |
+          echo ${{ steps.audit.outputs.YARN_CODE }}
+          echo ${{ steps.audit.outputs.YARN_CODE >= 10 }}
+          exit -1
+      
