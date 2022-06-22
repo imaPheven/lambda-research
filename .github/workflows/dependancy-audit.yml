@@ -25,11 +25,11 @@ jobs:
       - name: 'Run Audit'
         id: audit
         run: |
-          echo "::set-output name=YARN_RESULT::$(if YARN_RESULT="$(yarn audit --level high)"; then echo 0; else echo $?; fi)"
-          echo "::set-output name=YARN_CODE::$(echo $?)"
+          echo "::set-output name=YARN_CODE::$(if YARN_RESULT="$(yarn audit --level high)"; then echo 0; else echo $?; fi)"
+          echo "::set-output name=YARN_RESULT::$(echo $YARN_RESULT)"
         working-directory: 'client'
         continue-on-error: true
       - name: Handle fail
-        # if: ${{ failure() }}
-        run: echo "${{ toJSON(steps.audit) }}"
+        if: ${{ steps.audit.outputs.YARN_RESULT >= 8 }}
+        run: exit -1
       
