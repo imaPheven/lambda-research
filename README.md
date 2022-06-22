@@ -26,11 +26,11 @@ Pull the repo and change the set admin username and password for mongo database
 git clone https://github.com/imaPheven/mern-stack
 # change into root directory
 cd mern-stack
-# set mongo admin user/pass with #admin#/#pass#
-sed -i 's/<mongo-user>/#admin#/' docker-compose.yaml
-sed -i 's/<mongo-pass>/#pass#/' docker-compose.yaml
-sed -i 's/<mongo-user>/#admin#/' server/config.env
-sed -i 's/<mongo-pass>/#pass#/' server/config.env
+# set mongo admin user/pass with #admin#/#pass# (Works on MacOS)
+sed -i '' -e 's/<mongo-user>/#admin#/' docker-compose.yaml
+sed -i '' -e 's/<mongo-pass>/#pass#/' docker-compose.yaml
+sed -i '' -e 's/<mongo-user>/#admin#/' server/config.env
+sed -i '' -e 's/<mongo-pass>/#pass#/' server/config.env
 
 # pull docker images
 docker-compose pull
