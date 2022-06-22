@@ -24,9 +24,9 @@ jobs:
           cache-dependency-path: 'client/yarn.lock'
       - name: 'Run Audit'
         id: audit
-        run: yarn audit
+        run: yarn audit --level high 
         working-directory: 'client'
       - name: Handle fail
         if: ${{ failure() }}
-        run: echo "${{ steps.audit }}"
+        run: echo "${{ toJSON(steps.audit) }}"
       
