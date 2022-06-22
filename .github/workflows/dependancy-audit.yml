@@ -6,7 +6,7 @@
 # Public documentation: https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement
 name: 'Dependency Review'
 on: [pull_request]
-# Force change
+
 permissions:
   contents: read
 
@@ -14,12 +14,17 @@ jobs:
   dependency-review:
     runs-on: ubuntu-latest
     steps:
+      - name: 'Checkout'
       - uses: actions/checkout@v3
+      - name: 'Setup Node'
       - uses: actions/setup-node@v3
-        working-directory: ./client/src
         with:
           node-version: '14'
           cache: 'yarn'
-          cache-dependency-path: 'client/src/yarn.lock'
+          cache-dependency-path: 'client/yarn.lock'
+      - name: 'Run Audit'
+        working-directory: 'client'
+        # run: |
+        #   ls ${{ github.workspace }}
 #      - run: yarn install --frozen-lockfile --immutable
       - run: yarn audit
