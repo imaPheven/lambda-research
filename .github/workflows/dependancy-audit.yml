@@ -24,7 +24,9 @@ jobs:
           cache-dependency-path: 'client/yarn.lock'
       - name: 'Run Audit'
         id: audit
-        run: echo "::set-output name=YARN_RESULT::$(yarn audit --level high)"
+        run: |
+          echo "::set-output name=YARN_RESULT::$(yarn audit --level high)"
+          echo "::set-output name=YARN_CODE::$(echo $?)"
         working-directory: 'client'
         continue-on-error: true
       - name: Handle fail
