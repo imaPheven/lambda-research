@@ -16,9 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
+      - name: client
+        working-directory: ./client/src
         with:
           node-version: '14'
           cache: 'yarn'
-          cache-dependency-path: 'client/**/yarn.lock'
+          cache-dependency-path: 'client/src/yarn.lock'
 #      - run: yarn install --frozen-lockfile --immutable
       - run: yarn audit
