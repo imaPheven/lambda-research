@@ -1,4 +1,31 @@
 services:
+  client:
+    build: client
+    depends_on:
+      - mongo-backend
+      - server
+    volumes:
+      - ./client:/opt/mern-stack
+      - /opt/mern-stack/node_modules
+    restart: always
+    ports:
+      - 3000:3000
+    
+  server:
+    build: server
+    depends_on:
+      - mongo-backend
+    env_file:
+      - ./dev.env
+    networks:
+      - MONGO
+    volumes:
+      - ./server/src:/opt/mern-stack/src
+      - /opt/mern-stack/node_modules
+    restart: always
+    ports:
+      - 5001:5001   
+
   mongo-backend:
     image: mongo
     restart: always
@@ -8,9 +35,8 @@ services:
       - db-data1:/data/db
     networks:
       - MONGO
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: <mongo-user>
-      MONGO_INITDB_ROOT_PASSWORD: <mongo-pass>
+    env_file:
+      - ./dev.env
 
   mongo-express:
     image: mongo-express
@@ -21,10 +47,8 @@ services:
       - mongo-backend
     networks:
       - MONGO
-    environment:
-      ME_CONFIG_MONGODB_URL: mongodb://mongo-user:mongo-pass@mongo-backend:27017/
-      ME_CONFIG_MONGODB_ADMINUSERNAME: <mongo-user>
-      ME_CONFIG_MONGODB_ADMINPASSWORD: <mongo-pass>
+    env_file:
+      - ./dev.env
 
 volumes:
   db-data1:
