@@ -36,28 +36,11 @@ docker-compose pull
 # start the mongo instance
 docker-compose up
 ```
-To verify the instance is running correctly you can navigate to https://localhost:8050 for access to the [mongo-express](https://hub.docker.com/_/mongo-express) UI.
-
-
-From here you will need two additional terminals:
-### Starting the express server:
-```sh
-cd server
-# install node packages
-yarn
-# start the express server
-yarn start
-```
-
-### Starting the React Client:
-```sh
-cd client
-# install node packages
-yarn
-# start the client
-yarn start
-```
-If your browser doesn't open to the correct page you can manually navigate to https://localhost:5001
+Links For Running local environment
+- View Your Application: http://localhost:3000 (Your browser _should_ open up itself but if it doesn't)
+- Mongo-Express UI: http://localhost:8050
+    
+    [mongo-express](https://hub.docker.com/_/mongo-express) is a UI for managing a mongodb instance
 
 
 
