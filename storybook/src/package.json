@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook -s public",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
     "test-storybook": "test-storybook"
   },
   "dependencies": {
@@ -25,17 +25,15 @@
     "@storybook/addon-interactions": "^6.5.9",
     "@storybook/addon-links": "^6.5.9",
     "@storybook/builder-webpack5": "^6.5.9",
-    "@storybook/jest": "^0.0.10",
     "@storybook/manager-webpack5": "^6.5.9",
     "@storybook/react": "^6.5.9",
-    "@storybook/test-runner": "^0.3.0",
     "@storybook/testing-library": "^0.0.13",
     "babel-loader": "^8.2.5",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.0",
     "eslint-plugin-storybook": "^0.5.13",
     "jest": "27",
-    "msw": "^0.42.3",
+    "msw": "^0.44.2",
     "msw-storybook-addon": "^1.6.3"
   },
   "msw": {
