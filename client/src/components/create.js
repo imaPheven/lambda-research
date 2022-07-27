@@ -38,7 +38,10 @@ export default function Create() {
    setForm({ name: "", position: "", level: "" });
    navigate("/");
  }
- 
+ function onCancel(e) {
+  e.preventDefault();
+  navigate(e)
+ }
  // This following section will display the form that takes the input from the user.
  return (
    <div>
@@ -106,8 +109,9 @@ export default function Create() {
          <input
            type="submit"
            value="Create person"
-           className="btn btn-primary"
+           className="btn btn-success"
          />
+         <button className="btn" onClick={onCancel}>Cancel</button>
        </div>
      </form>
    </div>

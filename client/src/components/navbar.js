@@ -1,18 +1,46 @@
 import React from "react";
- 
+// TODO: replace with react-bootstrap/Navbar
+//     https://react-bootstrap.netlify.app/components/navbar/
+// import Navbar from 'react-bootstrap/Navbar';
 // We import bootstrap to make our application look better.
-import "bootstrap/dist/css/bootstrap.css";
- 
+// import "bootstrap/dist/css/bootstrap.css";
+ import "../App.scss"
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
  
 // Here, we display our Navbar
-export default function Navbar() {
+export default function MyNavbar() {
  return (
    <div>
-     <nav className="navbar navbar-expand-lg navbar-light bg-light">
+     <nav className="navbar navbar-expand-lg">
+      <div className="container-fluid">
        <NavLink className="navbar-brand" to="/">
-       <img alt="MongoDB Logo" style={{"width" : 25 + '%'}} src="https://d3cy9zhslanhfa.cloudfront.net/media/3800C044-6298-4575-A05D5C6B7623EE37/4B45D0EC-3482-4759-82DA37D8EA07D229/webimage-8A27671A-8A53-45DC-89D7BF8537F15A0D.png"></img>
+        <div className="vstack  ms-auto robot love">
+          <div>
+            <i class="bi bi-robot fs-1 text-primary"></i>&nbsp;&nbsp;
+            <i class="bi bi-heart fs-2 text-secondary"></i>
+          </div>
+          <div className="gap-neg-1 lh-1">
+            <span class="fs-6 text-secondary">Robot </span>
+            <span class="fs-6 ">Love</span>
+          </div>
+        </div>
+       {/* <div>
+          <span className="vstack robot love  lh-5">
+            <i class="bi bi-robot fs-1 text-primary gap-neg-1"></i>
+            <span class="fs-6 text-secondary gap-neg-2">Robot</span>
+          </span>
+          
+          <span className="vstack robot love lh-2">
+            <span class="" style={{marginBottom: '3px !important', fontSize: '1.9rem !important'}}>Love</span>
+            <i class="bi bi-heart text-secondary gap-neg-2 lh-3" style={{fontSize: '1.75rem !important'}}></i>
+          </span>
+          
+       </div> */}
+       
+       {/* <i class="bi bi-share-fill fs-5 text-info"></i> */}
+       
+       {/* <i class="bi bi-terminal-split fs-3 text-success"></i> */}
        </NavLink>
        <button
          className="navbar-toggler"
@@ -23,17 +51,40 @@ export default function Navbar() {
          aria-expanded="false"
          aria-label="Toggle navigation"
        >
-         <span className="navbar-toggler-icon"></span>
+         <i class="bi bi-list text-primary fs-1"></i>
        </button>
- 
-       <div className="collapse navbar-collapse" id="navbarSupportedContent">
-         <ul className="navbar-nav ml-auto">
-           <li className="nav-item">
-             <NavLink className="nav-link" to="/create">
-               Create Record
-             </NavLink>
-           </li>
-         </ul>
+       <div class="d-flex">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/create">
+              <i class="bi bi-plus-square text-info"></i> Create Record
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/sample/form">
+              <i class="bi bi-flag text-info"></i> Example Form
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/sample/colors">
+              <i class="bi bi-airplane-engines text-info"></i> Sample Colors
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/sample/placeholder">
+              <i class="bi bi-airplane-engines text-info"></i> Placeholders
+              </NavLink>
+            </li>
+            <li>
+            <button type="button" class="btn btn-secondary position-relative shadow-lg">
+    New <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">+99 <span class="visually-hidden">unread messages</span></span>
+  </button>
+            </li>
+          </ul>
+          </div>
+        </div>
        </div>
      </nav>
    </div>

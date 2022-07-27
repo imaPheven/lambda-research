@@ -25,15 +25,20 @@ export default function RecordList() {
  // This method fetches the records from the database.
  useEffect(() => {
    async function getRecords() {
-     const response = await fetch(`http://localhost:5001/record/`);
+    //  const response = await fetch(`http://localhost:5001/record/`);
  
-     if (!response.ok) {
-       const message = `An error occurred: ${response.statusText}`;
-       window.alert(message);
-       return;
-     }
+    //  if (!response.ok) {
+    //    const message = `An error occurred: ${response.statusText}`;
+    //    window.alert(message);
+    //    return;
+    //  }
  
-     const records = await response.json();
+    //  const records = await response.json();
+     const records = [
+      {name:"Bob", position: 'Executive', level: "noob"},
+      {name:"Joe", position: 'Plummer', level: "Master"},
+      {name:"Sam Weiss", position: 'Bowler', level: "Jedi Knight"}
+    ]
      setRecords(records);
    }
  
@@ -69,7 +74,7 @@ export default function RecordList() {
  return (
    <div>
      <h3>Record List</h3>
-     <table className="table table-striped" style={{ marginTop: 20 }}>
+     <table className="table table-striped secondary" style={{ marginTop: 20 }}>
        <thead>
          <tr>
            <th>Name</th>
@@ -78,8 +83,22 @@ export default function RecordList() {
            <th>Action</th>
          </tr>
        </thead>
-       <tbody>{recordList()}</tbody>
+       <tbody  className="secondary">
+        {recordList()}
+        </tbody>
      </table>
+     <nav  aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item disabled"><a class="page-link bg-dark" href="#">Previous</a></li>
+        <li class="page-item active"><a class="page-link bg-dark" href="#">1</a></li>
+        <li class="page-item"><a class="page-link bg-dark" href="#">2</a></li>
+        <li class="page-item"><a class="page-link bg-dark" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link bg-dark" href="#">Next</a>
+          </li>
+      </ul>
+    </nav>
    </div>
  );
 }
+

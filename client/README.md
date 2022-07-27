@@ -68,3 +68,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+Color selection tools:
+- [paletton](https://paletton.com/#uid=73j1S0k++LMu8+5NC+X+UumZWnT)
+- [Mozilla Tools](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Color_picker_tool)
+- [material.io about tools](https://material.io/design/color/the-color-system.html#tools-for-picking-colors)
+- [material.io full tool](https://material.io/resources/color/#!/?view.left=0&view.right=1&primary.color=21242b&secondary.color=605dbf)
+- [www.canva.com](https://www.canva.com/colors/color-wheel/)
+- [Material Theme Builder](https://material-foundation.github.io/material-theme-builder/#/custom)
+
+- [htmlcolorcodes](https://htmlcolorcodes.com/color-picker/)
+- [bootstrap icons](https://icons.getbootstrap.com)
