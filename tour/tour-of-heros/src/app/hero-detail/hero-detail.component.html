@@ -5,6 +5,30 @@
     <label for="name">Hero name: </label>
     <input id="name" [(ngModel)]="hero.name" placeholder="name">
   </div>
+  <div>
+    <label for="strength">Strength: </label>
+    <input id="strength" [(ngModel)]="hero.abilities.str" placeholder="Strength">
+  </div>
+  <div>
+    <label for="wisdom">Wisdom: </label>
+    <input id="wisdom" [(ngModel)]="hero.abilities.wis" placeholder="Wisdom">
+  </div>
+  <div>
+    <label for="dexterity">Dexterity: </label>
+    <input id="dexterity" [(ngModel)]="hero.abilities.dex" placeholder="Dexterity">
+  </div>
+  <div>
+    <label for="constitution">Constitution: </label>
+    <input id="constitution" [(ngModel)]="hero.abilities.con" placeholder="Constitution">
+  </div>
+  <div>
+    <label for="intelegence">Intelegence: </label>
+    <input id="intelegence" [(ngModel)]="hero.abilities.int" placeholder="Intelegence">
+  </div>
+  <div>
+    <label for="charisma">Charisma: </label>
+    <input id="charisma" [(ngModel)]="hero.abilities.cha" placeholder="Charisma">
+  </div>
   <button type="button" (click)="save()">Save</button>
 </div>
 <button type="button" (click)="goBack()">go back</button>

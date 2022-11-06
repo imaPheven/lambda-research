@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Hero } from '../hero'
 import { HeroService } from '../hero.service';
 
@@ -10,7 +11,8 @@ import { HeroService } from '../hero.service';
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
   constructor(
-    private heroService: HeroService
+    private heroService: HeroService,
+    private router: Router
     ) { }
     ngOnInit(): void {
       this.getHeros();
@@ -32,4 +34,8 @@ export class HeroesComponent implements OnInit {
       this.heroes = this.heroes.filter(h => h !== hero);
       this.heroService.deleteHero(hero.id).subscribe();
     }
+    viewDetail(hero: Hero): void {
+       this.router.navigate(["detail",hero.id])
+    }
+    columnsToDisplay: string[] = ['id','name','action']
 }

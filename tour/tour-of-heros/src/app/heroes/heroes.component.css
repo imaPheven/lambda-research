@@ -88,3 +88,32 @@ button.delete:hover {
   background-color: #525252;
   color: white;
 }
+table.heroes {
+  width: 100%;
+}
+.mat-column-id {
+  width: 32px;
+  border-right: 1px solid currentColor;
+}
+.mat-column-name {
+  padding-left: 10px;
+}
+.mat-column-action {
+  padding-left: 10px;
+}
+.mat-column-action button {
+  
+  background-color: #525252;
+  color:  #fff;
+  font-size: 0.75rem;
+  margin: 0;
+  padding: 1px 10px 3px 10px;
+}
+
+.mat-row .mat-cell {
+  cursor: pointer;
+}
+
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+}

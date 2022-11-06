@@ -63,6 +63,11 @@ export default function MyNavbar() {
               </NavLink>
             </li>
             <li className="nav-item">
+              <NavLink className="nav-link" to="/spelling">
+              <i class="bi bi-behance text-info"></i> Spelling
+              </NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink className="nav-link" to="/sample/form">
               <i class="bi bi-flag text-info"></i> Example Form
               </NavLink>
